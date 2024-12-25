@@ -27,20 +27,64 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
+tep 1: Initialize the Counter
+Initialize the counter with n bits, where n is the number of bits in the counter. Set all bits to 0.
 
-/* write all the steps invloved */
+Step 2: Receive Clock Pulse
+Receive a clock pulse (CLK) from the clock source.
+
+Step 3: Check Enable Signal
+Check the enable signal (EN). If EN is 0, go to step 6.
+
+Step 4: Increment Counter
+If EN is 1, increment the counter by 1. This is done by adding 1 to the current count.
+
+Step 5: Update Counter Outputs
+Update the counter outputs (Qn-1, Qn-2, ..., Q0) to reflect the new count.
+
+Step 6: Repeat
+Repeat steps 2-5 for each clock pulse.
+
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+module EXP11(out,clk,rst);
 
-Developed by: RegisterNumber:
-*/
+input clk,rst;
+
+output reg [3:0]out;
+
+always @ (posedge clk)
+
+begin
+
+   if(rst)
+   
+     out<=0;
+   
+   else 
+   
+     out <= out+1;
+end
+
+endmodule
+
+
+
+
+Developed by:D.MEAGESWAR RegisterNumber:24900815
+
 
 **RTL LOGIC UP COUNTER**
+![Screenshot 2024-12-25 152559](https://github.com/user-attachments/assets/44075234-1de9-4e35-aa2c-3f19c20c7ad5)
+
 
 **TIMING DIAGRAM FOR IP COUNTER**
+![Screenshot 2024-12-25 152855](https://github.com/user-attachments/assets/3f25c70d-6318-47e6-b1f7-5563fffc05a1)
 
-**TRUTH TABLE**
+
 
 **RESULTS**
+
+Thus the program exceeded sucessfully
